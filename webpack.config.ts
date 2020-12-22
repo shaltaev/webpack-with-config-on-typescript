@@ -1,6 +1,5 @@
 import { join } from 'path';
 import { WebpackPluginInstance, WatchIgnorePlugin, Configuration, RuleSetRule } from 'webpack';
-import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import { isDev } from './apps/_utils/is_dev'
@@ -57,7 +56,7 @@ const tsRuleWebApp: RuleSetRule = {
     }
 }
 
-const webAppConfig: Configuration & DevServerConfiguration = {
+const webAppConfig: Configuration = {
     entry: join(__dirname, 'apps', 'web_app' , 'src', 'index.ts'),
     output: {
         path: join(__dirname, 'dist', 'web_app'),
