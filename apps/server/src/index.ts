@@ -5,10 +5,10 @@ import { readFile } from 'fs'
 const webAppBasePath = '../web_app';
 
 const handleWebApp: RequestListener = (req, res) => {
-    var resolvedBase = resolve(__dirname ,webAppBasePath);
-    var safeSuffix = normalize(req.url || '')
+    const resolvedBase = resolve(__dirname ,webAppBasePath);
+    const safeSuffix = normalize(req.url || '')
         .replace(/^(\.\.[\/\\])+/, '');
-    var fileLocation = join(resolvedBase, safeSuffix);
+    const fileLocation = join(resolvedBase, safeSuffix);
     
     readFile(fileLocation, function(err, data) {
         if (err) {
@@ -25,9 +25,8 @@ const handleWebApp: RequestListener = (req, res) => {
 
 };
 
-const httpSerever = createServer(handleWebApp)
+const httpServer = createServer(handleWebApp)
 
-
-httpSerever.listen("5000", () => {
+httpServer.listen("5000", () => {
     console.info('Listen on 5000 port')
 })
